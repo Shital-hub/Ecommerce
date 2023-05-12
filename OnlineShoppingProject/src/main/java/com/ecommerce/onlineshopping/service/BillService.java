@@ -11,5 +11,8 @@ public interface BillService {
 	//Update Bill Details
 	
 	public Bill updateBillDetails(Bill bill,Integer id);
+	
+	//get Bill details
+	public Bill getBillDetails(Integer id);
 
 }

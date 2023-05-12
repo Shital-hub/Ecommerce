@@ -40,4 +40,11 @@ public class BillServiceImpl implements BillService {
 		return updateBill;
 	}
 
+	@Override
+	public Bill getBillDetails(Integer id) {
+		Optional<Bill> optional=billRepository.findById(id);
+		Bill bill=optional.get();
+		return bill ;
+	}
+
 }
