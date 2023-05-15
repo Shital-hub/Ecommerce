@@ -1,5 +1,7 @@
 package com.ecommerce.onlineshopping.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,5 +20,13 @@ public class UserServiceImpl implements UserService {
 		User user1 = userRepository.save(user);
 		return user1;
 	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public User getUserdetils(Integer id) {
+		User user=userRepository.getById(id);
+		return user;
+	}
+
 
 }

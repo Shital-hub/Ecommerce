@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ecommerce.onlineshopping.model.Address;
+import com.ecommerce.onlineshopping.model.User;
 import com.ecommerce.onlineshopping.repository.AddressRepository;
 import com.ecommerce.onlineshopping.service.AddressService;
 
@@ -26,5 +27,11 @@ public class AddressServiceImpl implements AddressService {
 	{
 		List<Address> addList = addressRepository.saveAll(addresses);
 		return addList;
+	}
+
+	@Override
+	public List<Address> getAddressbyId(Integer userid) {
+		List<Address> address=addressRepository.findAddressById(userid);
+		return address;
 	}
 }
