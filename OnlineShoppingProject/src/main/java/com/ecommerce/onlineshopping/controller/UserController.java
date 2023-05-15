@@ -31,11 +31,10 @@ public class UserController {
 
 		// using for loop
 		for (Address address : addressList) {
-
-			address.setaId(user.getId());
-			addressService.saveAddressDetails(address);
-
+			address.setUserid(user1.getId());// set userId instead Of Address Id
 		}
+		
+		user1.setAddressList(addressService.SaveAll(addressList));// Instead of save use SaveAll()
 
 		return ResponseEntity.ok().body(user1);
 

@@ -1,5 +1,7 @@
 package com.ecommerce.onlineshopping.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,4 +21,10 @@ public class AddressServiceImpl implements AddressService {
 		return address1;
 	}
 
+	@Override
+	public List<Address> SaveAll(List<Address> addresses)
+	{
+		List<Address> addList = addressRepository.saveAll(addresses);
+		return addList;
+	}
 }
