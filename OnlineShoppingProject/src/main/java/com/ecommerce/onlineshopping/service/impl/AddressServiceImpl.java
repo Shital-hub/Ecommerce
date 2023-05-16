@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ecommerce.onlineshopping.model.Address;
-import com.ecommerce.onlineshopping.model.User;
 import com.ecommerce.onlineshopping.repository.AddressRepository;
 import com.ecommerce.onlineshopping.service.AddressService;
 

@@ -1,7 +1,5 @@
 package com.ecommerce.onlineshopping.service;
 
-import java.util.List;
-
 import com.ecommerce.onlineshopping.model.User;
 
 public interface UserService {

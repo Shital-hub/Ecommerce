@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -22,9 +23,9 @@ public class Bill {
 	private double money;
 	
 	@OneToOne(targetEntity = Provider.class, cascade = CascadeType.ALL)
+	@JoinColumn(name="pId")
 	private Provider provider;
-	
-	private int pid;
+
 	
 	public int getBid() {
 		return bid;
@@ -61,12 +62,6 @@ public class Bill {
 	}
 	public void setMoney(double money) {
 		this.money = money;
-	}
-    public int getPid() {
-		return pid;
-	}
-	public void setPid(int pid) {
-		this.pid = pid;
 	}
 
 }

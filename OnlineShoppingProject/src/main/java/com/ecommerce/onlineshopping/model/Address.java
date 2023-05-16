@@ -13,11 +13,15 @@ public class Address {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int aId;
+	
 	private String city;
+	
 	private String state;
+	
 	private int userid;
 	
 	//using getter and setter
+	
 	public int getaId() {
 		return aId;
 	}

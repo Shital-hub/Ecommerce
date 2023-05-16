@@ -13,6 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "user")
 public class User {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -23,13 +24,14 @@ public class User {
 
 	private String password;
 
-	private Integer gender;
+	private String gender;
 
 	private Date birthday;
 
 	private Integer userType;
 
 	// using one to many mapping
+	
 	@OneToMany(mappedBy = "userid")
 	private List<Address> addressList;
 
@@ -65,11 +67,11 @@ public class User {
 		this.password = password;
 	}
 
-	public Integer getGender() {
+	public String getGender() {
 		return gender;
 	}
 
-	public void setGender(Integer gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 

@@ -3,6 +3,7 @@ package com.ecommerce.onlineshopping.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ecommerce.onlineshopping.model.Address;
+import com.ecommerce.onlineshopping.model.Payment;
 import com.ecommerce.onlineshopping.model.User;
 import com.ecommerce.onlineshopping.service.AddressService;
+import com.ecommerce.onlineshopping.service.PaymentService;
 import com.ecommerce.onlineshopping.service.UserService;
 
 @RestController
@@ -26,19 +29,24 @@ public class UserController {
 	@Autowired
 	private AddressService addressService;
 
+	@Autowired
+	private PaymentService paymentService;
+
 	@PostMapping("/saveUserDetails")
 	public ResponseEntity<User> saveUserDetails(@RequestBody User user) {
-		User user1 = userService.saveUserDetails(user);
+		User saveUser = userService.saveUserDetails(user);
 		List<Address> addressList = user.getAddressList();
 
 		// using for loop
 		for (Address address : addressList) {
-			address.setUserid(user1.getId());// set userId instead Of Address Id
+
+		    address.setUserid(user.getId());
+		    
+		    this.addressService.SaveAll(addressList);
 		}
 
-		user1.setAddressList(addressService.SaveAll(addressList));// Instead of save use SaveAll()
 
-		return ResponseEntity.ok().body(user1);
+		return ResponseEntity.ok().body(saveUser);
 
 	}
 
@@ -51,12 +59,23 @@ public class UserController {
 
 	}
 
-	// get many address from userid
-	@GetMapping("/getAddressById/{userid}")
-	public ResponseEntity<List<Address>> getAddressDetailsById(@PathVariable("userid") Integer userid) {
-		List<Address> address=addressService.getAddressbyId(userid);
+	// get many address from userID
+	
+	@GetMapping("/getAddressById/{userId}")
+	public ResponseEntity<List<Address>> getAddressDetailsById(@PathVariable("userId") Integer userId) {
+		List<Address> address = addressService.getAddressbyId(userId);
 
 		return ResponseEntity.ok().body(address);
+	}
+
+	// Save the payment by user Id
+	
+	@PostMapping("/saveUserPayment/{userId}")
+	public ResponseEntity<Payment> saveUserPayment(@RequestBody Payment payment, @PathVariable Integer userId) {
+
+		Payment savePayment = paymentService.storePaymentByUserId(userId, payment);
+		
+		return ResponseEntity.status(HttpStatus.OK).body(savePayment) ;
 
 	}
 
