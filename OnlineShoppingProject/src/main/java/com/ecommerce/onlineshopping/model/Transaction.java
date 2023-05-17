@@ -1,7 +1,5 @@
 package com.ecommerce.onlineshopping.model;
 
-import java.time.LocalDate;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +15,7 @@ public class Transaction {
 	private int TransactionId;
 	private int Amount;
 	private boolean TransactionStatus;
+	
 	public int getTransactionId() {
 		return TransactionId;
 	}
