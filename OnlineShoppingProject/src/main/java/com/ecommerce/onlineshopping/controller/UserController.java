@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ecommerce.onlineshopping.model.Address;
-import com.ecommerce.onlineshopping.model.Payment;
+import com.ecommerce.onlineshopping.model.Transaction;
 import com.ecommerce.onlineshopping.model.User;
 import com.ecommerce.onlineshopping.service.AddressService;
-import com.ecommerce.onlineshopping.service.PaymentService;
+import com.ecommerce.onlineshopping.service.TransactionService;
 import com.ecommerce.onlineshopping.service.UserService;
 
 @RestController
@@ -30,7 +30,7 @@ public class UserController {
 	private AddressService addressService;
 
 	@Autowired
-	private PaymentService paymentService;
+	private TransactionService transactionService;
 
 	@PostMapping("/saveUserDetails")
 	public ResponseEntity<User> saveUserDetails(@RequestBody User user) {
@@ -68,15 +68,23 @@ public class UserController {
 		return ResponseEntity.ok().body(address);
 	}
 
-	// Save the payment by user Id
+	// Save the Transaction by Id
 	
-	@PostMapping("/saveUserPayment/{userId}")
-	public ResponseEntity<Payment> saveUserPayment(@RequestBody Payment payment, @PathVariable Integer userId) {
+	@PostMapping("/saveUserTransaction")
+	public ResponseEntity<Transaction> saveUserTransaction(@RequestBody Transaction transaction) {
 
-		Payment savePayment = paymentService.storePaymentByUserId(userId, payment);
+		Transaction saveTransaction = transactionService.storeTransactionByUserId(transaction);
 		
-		return ResponseEntity.status(HttpStatus.OK).body(savePayment) ;
+		return ResponseEntity.status(HttpStatus.OK).body(saveTransaction) ;
 
 	}
-
+	
+	// Get Transaction By Id
+	@GetMapping("/getTransaction/{id}")
+	public ResponseEntity<Transaction> getTransaction(@PathVariable("id") Integer id) {
+		
+		Transaction transaction = transactionService.getTransactionById(id);
+		return ResponseEntity.ok().body(transaction); 
+	
+	}
 }
