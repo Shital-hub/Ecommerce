@@ -37,4 +37,15 @@ public class ReimbursementServiceImpl implements ReimbursementService {
 		return updateReimbursement;
 	}
 
+	@Override
+	public Reimbursement getReimbursementDetails(Integer id) {
+		
+		
+	Optional<Reimbursement>  optional 	= reimbursementRepository.findById(id);
+		
+	Reimbursement reimbursement	= optional.get();
+	
+		return reimbursement;
+	}
+
 }
