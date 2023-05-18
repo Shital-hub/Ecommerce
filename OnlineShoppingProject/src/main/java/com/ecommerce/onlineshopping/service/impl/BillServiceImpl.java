@@ -39,7 +39,9 @@ public class BillServiceImpl implements BillService {
 
 		return updateBill;
 	}
-
+	
+	// Get Bill Details
+	
 	@Override
 	public Bill getBillDetails(Integer id) {
 		Optional<Bill> optional=billRepository.findById(id);
