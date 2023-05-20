@@ -7,5 +7,6 @@ import com.ecommerce.onlineshopping.model.CurrencyConversionBean;
 @Repository
 public interface CurrencyConversionBeanRepository extends JpaRepository<CurrencyConversionBean,Long> {
 	
-
+		
 }
+

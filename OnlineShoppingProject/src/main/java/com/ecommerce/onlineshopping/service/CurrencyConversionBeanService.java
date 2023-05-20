@@ -8,5 +8,11 @@ public interface CurrencyConversionBeanService {
 	//Get CurrencyConversionBean Details
 	
 	public CurrencyConversionBean getCurrentConverterDetails(Long id);
+	
+	//Delete CurrencyConversionBean Details
+	
+	public void deleteCurrentConverterDetails(Long id);
+	
+	
 
 }

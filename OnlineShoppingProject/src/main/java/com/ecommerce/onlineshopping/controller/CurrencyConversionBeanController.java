@@ -2,6 +2,7 @@ package com.ecommerce.onlineshopping.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,4 +27,12 @@ public class CurrencyConversionBeanController {
 			return ResponseEntity.ok().body(currencyConversionBean);
 
 }
+		// RestAPI to Delete CurrencyConversionBean Details
+		
+		@DeleteMapping("/delete/{id}")
+		public void deleteCurrencyConversionBeanById(@PathVariable("id") Long id) { 
+		
+			currencyConversionBeanService.deleteCurrentConverterDetails(id);
+			//id-2 path variable name pass here
+		}
 }

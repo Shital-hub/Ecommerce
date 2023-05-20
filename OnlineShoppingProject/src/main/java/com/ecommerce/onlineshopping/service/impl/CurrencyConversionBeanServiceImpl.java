@@ -23,4 +23,12 @@ public class CurrencyConversionBeanServiceImpl implements CurrencyConversionBean
 		return currencyConversionBean;
 	}
 
+	// Delete CurrencyConversionBean Details
+	@Override
+	public void deleteCurrentConverterDetails(Long id) {
+		
+		currencyConversionBeanRepository.deleteById(id);
+		
+	}
+
 }
