@@ -8,14 +8,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ecommerce.onlineshopping.model.Address;
+import com.ecommerce.onlineshopping.model.Bill;
+import com.ecommerce.onlineshopping.model.Prouduct;
 import com.ecommerce.onlineshopping.model.Transaction;
 import com.ecommerce.onlineshopping.model.User;
 import com.ecommerce.onlineshopping.service.AddressService;
+import com.ecommerce.onlineshopping.service.ProductService;
 import com.ecommerce.onlineshopping.service.TransactionService;
 import com.ecommerce.onlineshopping.service.UserService;
 
@@ -87,4 +91,32 @@ public class UserController {
 		return ResponseEntity.ok().body(transaction); 
 	
 	}
+	
+
+		// inject user service here
+		@Autowired
+		private ProductService productService;
+
+		@PostMapping("/saveUserproduct")
+		public Prouduct saveProduct(@RequestBody Prouduct product) {
+			// call service method
+			Prouduct product1 =productService.saveProduct(product);
+			
+			return  product1 ;
+		}
+		
+		
+		
+     //update product restful  design
+		@PutMapping("/updateProduct/{id}/")
+		public ResponseEntity <Prouduct> updateProduct(@PathVariable("id") Integer id, @RequestBody Prouduct product) {
+		Prouduct product1	= productService.updateProduct(product, id);
+			
+			return  ResponseEntity.ok().body(product1);
+		}
 }
+
+
+
+
+

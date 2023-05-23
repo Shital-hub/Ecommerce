@@ -35,8 +35,19 @@ public class User {
 	@OneToMany(mappedBy = "userid")
 	private List<Address> addressList;
 
+	@OneToMany(mappedBy = "userid")
+	private List<Prouduct> productList;
+
 	public Integer getId() {
 		return id;
+	}
+
+	public List<Prouduct> getProductList() {
+		return productList;
+	}
+
+	public void setProductList(List<Prouduct> productList) {
+		this.productList = productList;
 	}
 
 	public void setId(Integer id) {
