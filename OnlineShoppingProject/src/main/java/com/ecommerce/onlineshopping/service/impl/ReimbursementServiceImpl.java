@@ -10,7 +10,7 @@ import com.ecommerce.onlineshopping.repository.ReimbursementRepository;
 import com.ecommerce.onlineshopping.service.ReimbursementService;
 
 @Service
-public class ReimbursementServiceImpl implements ReimbursementService {
+public  class ReimbursementServiceImpl implements ReimbursementService {
 
 	@Autowired
 	private ReimbursementRepository reimbursementRepository;

@@ -1,21 +1,18 @@
 package com.ecommerce.onlineshopping.model;
 
 import java.math.BigDecimal;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * 
- * @author Poonam
- *
- */
-
 @Entity
-@Table(name="currencyConversionBean")
-public class CurrencyConversionBean {
+@Table(name="currentConverter")
+public class CurrentConverter {
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -67,11 +64,7 @@ public class CurrencyConversionBean {
 	public void setPort(int port) {
 		this.port = port;
 	}
-}	
 	
 	
 
-	
-	
-
-
+}
