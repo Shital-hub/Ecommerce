@@ -1,3 +1,4 @@
+//Design Restful web services to add the provider details into database.
 package com.ecommerce.onlineshopping.model;
 
 import java.util.Date;
@@ -7,7 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+/**
+ * 
+ * @author Poonam
+ *
+ */
 @Entity
 @Table(name="provider")
 public class Provider {

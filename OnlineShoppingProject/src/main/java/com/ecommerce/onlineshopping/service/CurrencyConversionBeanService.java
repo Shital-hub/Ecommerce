@@ -2,6 +2,11 @@ package com.ecommerce.onlineshopping.service;
 
 import com.ecommerce.onlineshopping.model.CurrencyConversionBean;
 
+/**
+ * 
+ * @author Poonam
+ *
+ */
 public interface CurrencyConversionBeanService {
 	
 	

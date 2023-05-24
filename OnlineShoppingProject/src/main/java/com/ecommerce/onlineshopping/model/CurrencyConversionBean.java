@@ -1,12 +1,17 @@
 package com.ecommerce.onlineshopping.model;
 
 import java.math.BigDecimal;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+/**
+ * 
+ * @author Poonam
+ *
+ */
 
 @Entity
 @Table(name="currencyConversionBean")
