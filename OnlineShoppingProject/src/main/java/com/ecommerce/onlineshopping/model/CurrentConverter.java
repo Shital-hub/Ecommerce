@@ -9,8 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="currencyConversionBean")
-public class CurrencyConversionBean {
+@Table(name="currentConverter")
+public class CurrentConverter {
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -62,11 +64,7 @@ public class CurrencyConversionBean {
 	public void setPort(int port) {
 		this.port = port;
 	}
-}	
 	
 	
 
-	
-	
-
-
+}
